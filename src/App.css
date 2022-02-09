@@ -41,3 +41,12 @@
   justify-content: flex-end;
   padding-right: 30px;
 }
+.Cuenta{
+  display: flex;
+  width: 100px;
+  gap: 10px;
+  align-items: center;
+  padding-left: 10px;
+  margin-top: 20px;
+}
+
