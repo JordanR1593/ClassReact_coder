@@ -26,7 +26,7 @@ const ItemCount = () => {
             <button type="button" className="btn btn-outline-primary" onClick={incrementar}>+</button>
             <p>{Productos}</p>
             <button type="button" className="btn btn-outline-danger" onClick={disminuir}>-</button>
-            <button type="button" class="btn btn-primary" onClick={mensaje}>Añadir a Carrito</button>
+            <button type="button" className="btn btn-primary" onClick={mensaje}>Añadir a Carrito</button>
         </div>
         );
 }
