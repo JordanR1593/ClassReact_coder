@@ -49,4 +49,17 @@
   padding-left: 10px;
   margin-top: 20px;
 }
-
+.card{
+  display: flex;
+  width: 25rem;
+  text-align: center;
+  align-items: center;
+}
+.carta{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.card-img-top{
+  width: 100px;
+  height: 100px;
+}
