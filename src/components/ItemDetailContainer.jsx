@@ -1,6 +1,7 @@
 import {  useEffect, useState } from "react";
 import {Item} from './Item'
 import ItemDetail from "./ItemDetail" 
+import ItemCount from "./ItemCount";
 const {relojs} = require("./Item")
 console.log(relojs)
  const ItemDetailContainer = ()=>{
@@ -17,7 +18,11 @@ console.log(relojs)
     }, []);
     console.log(Items)
     return(
+        <>
         <ItemDetail item={Items}/>
+        <ItemCount/>
+        </>
+        
     )
 
 }

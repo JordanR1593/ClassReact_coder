@@ -1,33 +1,29 @@
-import CartWidget from './CartWidget'
+import CartWidget from './CartWidget';
+import { Link } from 'react-router-dom';
+
 const Navbar =()=>{
     return(
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">TiendaMuN</a>
+          <Link to="/" className="navbar-brand" >TiendaMuN</Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">Inicio</a>
+                <Link to="/" className="nav-link active" aria-current="page" href="#">Inicio</Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">Categoria 1</a>
+                <Link to="/category/1" className="nav-link" >Reloj pared</Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">Categoria 2</a>
+                <Link to="/category/2" className="nav-link" >Reloj pulso</Link>
               </li>
-              <li className="nav-item dropdown">
-                <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Acciones
-                </a>
-                <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <li><a className="dropdown-item" href="#">Comprar</a></li>
-                  <li><a className="dropdown-item" href="#">Vender</a></li>
-                  <li><a className="dropdown-item" href="#">Alquilar</a></li>
-                </ul>
+              <li className="nav-item">
+                <Link to="/category/3" className="nav-link"  >Reloj despertador</Link>
               </li>
+              
             </ul>
           </div>
         </div>

@@ -1,46 +1,34 @@
 
-import {Item, relojs} from './Item'
-import {  useEffect, useState } from "react";
 
-const ItemList= ()=>{
+const ItemList= (props)=>{
 
-    const [Items, setItems] = useState([]); 
-    function getItems(){
-        Item(2000, relojs)
-        .then((dato)=>setItems(dato))
-        .then((data)=>{console.log(data) })
-        
-        .catch((error)=>console.log(error))
-    }
-    console.log(Items)
-   
-    useEffect(()=>{
-        setTimeout(() => {
-            getItems()
-        }, 0);
-    },[])  
+     
     
      return(
         
         
-        Items.map(elem=>(
-            
+        
+            props.item.map((element=>{
+                return(
                 <>
-            
+                
                 <div className="card"  >
-                <img className="card-img-top" key={elem.id} src={elem.url} alt={elem.name}/>
+                <img className="card-img-top" key={element.id} src={element.url} alt={element.name}/>
                 <div className="card-body">
-                    
-                    <p className="card-text">$ {elem.cost}</p>
-                    <p className="card-text">{elem.description}</p>
+                    <h3 className="card-text"> {element.name}</h3>
+                    <p className="card-text">$ {element.cost}</p>
+                    <p className="card-text">{element.description}</p>
                 </div>
                 </div>
                 
                 </>
-            )
+    
+     )}))
+                
+            
             
         )    
-     )
+     
         
         
     
