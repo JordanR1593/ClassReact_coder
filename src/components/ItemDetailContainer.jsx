@@ -23,7 +23,7 @@ const ItemDetailContainer = () => {
 	return (
 		<>
 			<ItemDetail item={Items} />
-			<ItemCount />
+			{/* <ItemCount /> */}
 		</>
 	);
 };
