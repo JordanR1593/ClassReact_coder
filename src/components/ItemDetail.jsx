@@ -1,6 +1,7 @@
 import ItemCount from "./ItemCount";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from 'react-router-dom';
+import { CartContext } from "./CartContext";
 const ItemCheck=()=>{
 	return (
         <div className="Cuenta">
@@ -11,28 +12,30 @@ const ItemCheck=()=>{
         );
 }
 
-const ItemDetail = (props) => {
+const ItemDetail = ({item}) => {
 	const [QtToAdd, setQtToAdd] = useState(0); 
+	const test = useContext(CartContext)
+	
 	const onAdd1=(Propi)=>{
 		alert("Se han agregado al carrito " + Propi+ " unds")
 		setQtToAdd(Propi)
-		
+		test.addToCart(item,Propi)
 	}
-	console.log(QtToAdd)
+	{console.log(item.id)}
 	return (
 		<>
-			{console.log(props.item)}
+			
 			<div className="card">
 				<img
 					className="card-img-top"
-					key={props.item.id}
-					src={props.item.url}
-					alt={props.item.name}
+					key={item.id}
+					src={item.url}
+					alt={item.name}
 				/>
 				<div className="card-body">
-					<h3 className="card-text"> {props.item.name}</h3>
-					<p className="card-text">$ {props.item.cost}</p>
-					<p className="card-text">{props.item.description}</p>
+					<h3 className="card-text"> {item.name}</h3>
+					<p className="card-text">$ {item.cost}</p>
+					<p className="card-text">{item.description}</p>
 				</div>
 			</div>
 			{
