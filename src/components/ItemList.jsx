@@ -18,7 +18,10 @@ const ItemList= (props)=>{
                     <h3 className="card-text"> {element.name}</h3>
                     <p className="card-text">$ {element.cost}</p>
                     <p className="card-text">{element.description}</p>
-                    <button ><Link to={"/item/"+element.id} className="nav-link"  >Ver detalle</Link></button>
+                    <div className='btn-detalle-list'>
+                    <button type="button" className="btn btn-primary" ><Link  to={"/item/"+element.id} className="nav-link"  >Ver detalle</Link></button>
+                    </div>
+                    
                 </div>
                 </div>
                 

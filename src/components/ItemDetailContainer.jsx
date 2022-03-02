@@ -12,7 +12,7 @@ const ItemDetailContainer = () => {
 	const {idName} = useParams();
 
 	function getItem() {
-		Item(2000, relojs[idName-1])
+		Item(500, relojs[idName-1])
 			.then((data) => setItems(data))
 			.catch((error) => console.log(error));
 	}

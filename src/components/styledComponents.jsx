@@ -10,14 +10,20 @@ const TitleCart = styled.h1`
 `;
 
 const ContentCart = styled.div`
-  display: flex;
-  flex-direction: column;
+  
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap:25px;
   justify-content: space-between;
+  width:20rem;
+  height:20rem;
 `;
 
 const Product = styled.div`
+  margin-top:30px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  /* justify-content: space-between; */
 `;
 
 const ProductDetail = styled.div`
@@ -26,7 +32,9 @@ const ProductDetail = styled.div`
 `;
 
 const ImageCart = styled.img`
-  width: 200px;
+  width: 10rem;
+  height:10rem;
+  object-fit:cover;
 `;
 
 const Details = styled.div`

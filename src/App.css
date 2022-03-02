@@ -54,12 +54,29 @@
   width: 25rem;
   text-align: center;
   align-items: center;
+  
+  
 }
 .carta{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  
 }
 .card-img-top{
-  width: 100px;
-  height: 100px;
+  padding-top: 10px;
+  width: 200px;
+  height: 200px;
+}
+.card-body{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-bottom: 0;
+}
+.nav-link{
+  color: white;
+}
+.btn-nav-car{
+    display: flex;
+    justify-content: space-between;
 }
