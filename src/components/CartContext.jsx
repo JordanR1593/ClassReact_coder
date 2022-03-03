@@ -7,29 +7,14 @@ const CartContextProvider = ({children}) => {
     const [cartList , setcarList] = useState([]);
 console.log(cartList)
     const addToCart=(item, QtToAdd)=>{
-        if(cartList.length==1){{console.log(cartList)}
+        if(cartList.length>=1){
                 ///////////////////////
-                cartList.map(ele=>{
-                    console.log(ele.id)
-                    console.log(item.id)
-                    const newdataRepeat={}
-                    if(ele.id==item.id){
+                let found=cartList.find(ele=>(ele.id==item.id))
+                if(found){
+                    found.qty=QtToAdd+found.qty
+                }else{
                         
-                    (item.qty = 1 + ele.qty)
-                    newdataRepeat=
-                        {
-                        id:item.id,
-                        name:item.name,
-                        image:item.url,
-                        price:item.cost,
-                        qty: item.qty,
-            
-                    }
-                    }else{
-                        const arrayviejo = [];
-                        arrayviejo.push(ele)
-                        setcarList([arrayviejo,newdataRepeat,
-                            {
+                        setcarList([...cartList,{
                             id:item.id,
                             name:item.name,
                             image:item.url,
@@ -37,9 +22,9 @@ console.log(cartList)
                             qty: QtToAdd,
                 
                         }])
-                    }
-                })
-               ///////////////////// 
+                
+                        }
+                
             } 
             else{console.log("chao")
                 setcarList([

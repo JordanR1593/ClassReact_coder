@@ -2,6 +2,18 @@ import styled from "styled-components"
 //Cart
 const WrapperCart = styled.div`
     padding: 20px;
+    
+`;
+
+const ContainerCar = styled.div`
+    padding: 20px;
+    display:flex;
+    justify-content:space-between;
+`;
+
+const ContainerSumary = styled.div`
+    border:1px solid rgba(0, 0, 0, 0.2);
+    padding:5px;
 `;
 
 const TitleCart = styled.h1`
@@ -56,4 +68,4 @@ const ProductPrice = styled.div`
   font-size: 30px;
   font-weight: 200;
 `;
-export {WrapperCart, TitleCart, ContentCart, Product, ProductDetail, ImageCart, Details, PriceDetail,  ProductPrice}
+export {WrapperCart, TitleCart, ContentCart, Product, ProductDetail, ImageCart, Details, PriceDetail,  ProductPrice, ContainerCar, ContainerSumary}

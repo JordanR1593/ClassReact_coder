@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { CartContext } from './CartContext';
-import { WrapperCart, TitleCart, ContentCart, Product, ProductDetail, ImageCart, Details, PriceDetail,  ProductPrice } from './styledComponents';
+import { WrapperCart, TitleCart, ContentCart, Product, ProductDetail, ImageCart, Details, PriceDetail,  ProductPrice, ContainerCar,ContainerSumary } from './styledComponents';
 import { Link } from 'react-router-dom';
 
 const Carrito=()=>{
@@ -12,17 +12,11 @@ const Carrito=()=>{
             <TitleCart>YOUR CAR</TitleCart>
             <div className='btn-nav-car'>
 
+            {test.cartList.length==0 && <>Tu carrito esta vacio <Link to={"/"} ><button className="btn btn-success" >Comenzar compra</button></Link></>}
+            {test.cartList.length!=0 && <><button className="btn btn-danger" onClick={test.deleteAllProduct}>Borrar todo del carrito</button> <>{test.getTotalQuantity()}</><Link to={"/"} ><button className="btn btn-success" >Continuar comprando</button></Link></>}
             
-            {test.cartList.length!=0 && <><button className="btn btn-danger" onClick={test.deleteAllProduct}>Borrar todo del carrito</button> <>{test.getTotalQuantity()}</></>}
-                       
-            
-
-               
-            {console.log(test.cartList.length) }   
-                
-                <Link to={"/"} ><button className="btn btn-success" >Continuar comprando</button></Link>
             </div>
-            
+            <ContainerCar>
             <ContentCart>
                 
             {test.cartList.map(ele=>(
@@ -39,9 +33,9 @@ const Carrito=()=>{
                     </ProductDetail>
                     <PriceDetail>
                         
-                    {ele.qty} items
+                    {ele.qty} item(s) / ${ele.price} each
                         
-                        <ProductPrice>${ele.price} each</ProductPrice>
+                        <ProductPrice>${ele.price*ele.qty}</ProductPrice>
                     </PriceDetail></div>
                     
                     <button type="button" className="btn btn-outline-danger" onClick={()=>{test.deleteProduct(ele.id)}}>Borrar</button>
@@ -51,7 +45,15 @@ const Carrito=()=>{
             )
                 
             )}
+            
             </ContentCart>
+            
+            {test.cartList.length>0 && <ContainerSumary><div><strong>ORDER SUMARY</strong>
+                <div>Subtotal:$ {test.getTotalPrice()}</div>
+                <div>Total:$ {test.getTotalPrice()}</div>
+            </div></ContainerSumary>}
+            
+            </ContainerCar>
         </WrapperCart>
     )
     
