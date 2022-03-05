@@ -1,33 +1,45 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Item } from "./Item";
+/* import { Item } from "./Item"; */
 import ItemList from "./ItemList";
 import { collection, getDocs } from "firebase/firestore";
 import db from "../firebaseConfig"
 
-const { relojs } = require("./Item");
+/* const { relojs } = require("./Item"); */
 
 const ItemListContainer = () => {
 	const [Items, setItems] = useState([]);
 	const { idCategory } = useParams();
 	console.log(idCategory);
-
+	let array=[]
  const firestoreFetch = async ()=>{
 	 const querySnapshot = await getDocs(collection(db,"item"));
-	 return querySnapshot.doc.map(document => ({
-		 id: document.id,
+	 
+	  return array=(querySnapshot.docs.map(document => ({
+		 idI: document.id,
 		 ...document.data()
-	 }))
- }
 
- /* function getItems() {
-	firestoreFetch(
+		 
+	 })))
+	 
+ }
+ /* console.log(Items.map(element=>{
+	 return (element.doc.data.value.mapValue.fields)
+ })) */
+ console.log(array)
+
+ function getItems() {
+	/* firestoreFetch(
 		
-		querySnapshot.doc.filter((e) => e.categoryId === parseInt(idCategory))
+		array.docs.filter((e) => e.categoryId === parseInt(idCategory))
 	)
 		.then((dato) => setItems(dato))
+		.catch((error) => console.log(error)); */
+		firestoreFetch.filter((e) => e.categoryId === parseInt(idCategory))
+		.then((dato) => setItems(dato))
 		.catch((error) => console.log(error));
-} */
+		
+}
 function getAllItems() {
 	firestoreFetch( )
 		.then((dato) => setItems(dato))
@@ -58,7 +70,7 @@ function getAllItems() {
 			if (idCategory === undefined) {
 				getAllItems();
 			} else {
-				/* getItems(); */
+				getItems();
 			}
 		}, 0);
 	}, [idCategory]);
