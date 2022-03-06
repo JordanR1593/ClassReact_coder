@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 /* import { Item } from "./Item"; */
 import ItemList from "./ItemList";
 import { collection, getDocs } from "firebase/firestore";
-import db from "../firebaseConfig"
+import db from "../firebaseConfig";
 
 /* const { relojs } = require("./Item"); */
 
@@ -11,45 +11,32 @@ const ItemListContainer = () => {
 	const [Items, setItems] = useState([]);
 	const { idCategory } = useParams();
 	console.log(idCategory);
-	let array=[]
- const firestoreFetch = async ()=>{
-	 const querySnapshot = await getDocs(collection(db,"item"));
-	 
-	  return array=(querySnapshot.docs.map(document => ({
-		 idI: document.id,
-		 ...document.data()
+	let array;
+	const firestoreFetch = async () => {
+		const querySnapshot = await getDocs(collection(db, "item"));
 
-		 
-	 })))
-	 
- }
- /* console.log(Items.map(element=>{
-	 return (element.doc.data.value.mapValue.fields)
- })) */
- console.log(array)
+		return (array = querySnapshot.docs.map((document) => ({
+			id: document.id,
+			...document.data(),
+		})));
+	};
+	
+	console.log(array);
 
- function getItems() {
-	/* firestoreFetch(
-		
-		array.docs.filter((e) => e.categoryId === parseInt(idCategory))
-	)
-		.then((dato) => setItems(dato))
-		.catch((error) => console.log(error)); */
-		firestoreFetch.filter((e) => e.categoryId === parseInt(idCategory))
-		.then((dato) => setItems(dato))
-		.catch((error) => console.log(error));
-		
-}
-function getAllItems() {
-	firestoreFetch( )
-		.then((dato) => setItems(dato))
-		.catch((error) => console.log(error));
-}
-
-
-
-
-
+	function getItems() {
+		console.log("pocos");
+		firestoreFetch()
+			.then((dato) =>
+				setItems(dato.filter((e) => e.categoryId === parseInt(idCategory)))
+			)
+			.catch((error) => console.log(error));
+	}
+	function getAllItems() {
+		console.log("todo");
+		firestoreFetch()
+			.then((dato) => setItems(dato))
+			.catch((error) => console.log(error));
+	}
 
 	/* function getItems() {
 		Item(
@@ -66,13 +53,13 @@ function getAllItems() {
 	} */
 
 	useEffect(() => {
-		setTimeout(() => {
-			if (idCategory === undefined) {
-				getAllItems();
-			} else {
-				getItems();
-			}
-		}, 0);
+		if (idCategory === undefined) {
+			getAllItems();
+			console.log("sin filter");
+		} else {
+			getItems();
+			console.log("con filter");
+		}
 	}, [idCategory]);
 	console.log(Items);
 

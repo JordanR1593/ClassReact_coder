@@ -21,7 +21,7 @@ const ItemDetail = ({item}) => {
 		setQtToAdd(Propi)
 		test.addToCart(item,Propi)
 	}
-	{console.log(item.id)}
+	
 	return (
 		<>
 			
