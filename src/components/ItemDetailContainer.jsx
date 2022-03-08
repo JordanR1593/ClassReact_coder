@@ -1,28 +1,36 @@
 import { useEffect, useState } from "react";
-import { Item } from "./Item";
+import { doc, getDoc } from "firebase/firestore";
 import ItemDetail from "./ItemDetail";
-
 import { useParams } from "react-router-dom";
-
-import { collection, getDocs } from "firebase/firestore";
 import db from "../firebaseConfig";
 
-let array
+
+
 const ItemDetailContainer = () => {
 	const [Items, setItems] = useState({});
 	const {idName} = useParams();
-	const firestoreFetch = async () => {
-		const querySnapshot = await getDocs(collection(db, "item"));
+	
+	const firestoreFetch= async(iditem)=>{
+		const docRef = doc(db, "item", iditem);
+		const docSnap = await getDoc(docRef);
+	
+		if (docSnap.exists()) {
+		return{
+			id:iditem,
+			...docSnap.data()
+		}
+		} else {
+	  
+	  		console.log("No such document!");
+	}
+	}
+	
 
-		return (array = querySnapshot.docs.map((document) => ({
-			id: document.id,
-			...document.data(),
-		})));
-	};
+
 	function getItem() {
 		
-		firestoreFetch( )
-			.then((data) => setItems(data[idName-1]))
+		firestoreFetch(idName )
+			.then((data) => setItems(data))
 			.catch((error) => console.log(error));
 	}
 	useEffect(() => {
