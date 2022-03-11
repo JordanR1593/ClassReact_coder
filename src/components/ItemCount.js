@@ -1,18 +1,18 @@
 import { useState } from "react";
 
-const ItemCount = ({onAdd}) => {
+const ItemCount = ({onAdd, stock}) => {
     
     const [Productos, setProductos] = useState(1); 
     
     const incrementar = () => {
-        if((Productos>=1)&&(Productos<=4)){
+        if((Productos>=1)&&(Productos<=stock-1)){
             setProductos(Productos+1);
         }
         
     }
     const disminuir = () => {
         
-        if((Productos>=2)&&(Productos<=5)){
+        if((Productos>=2)&&(Productos<=stock)){
             setProductos(Productos-1);
         }
     }

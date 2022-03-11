@@ -35,6 +35,7 @@ const ItemDetail = ({item}) => {
 				<div className="card-body">
 					<h3 className="card-text"> {item.name}</h3>
 					<p className="card-text">$ {item.cost}</p>
+					<p className="card-text"> stock: {item.stock} und</p>
 					<p className="card-text">{item.description}</p>
 				</div>
 			</div>
@@ -42,7 +43,7 @@ const ItemDetail = ({item}) => {
 				
 				QtToAdd ==0? 
 
-				<ItemCount  onAdd={onAdd1}/>
+				<ItemCount  stock={item.stock}onAdd={onAdd1}/>
 				:<ItemCheck/>
 				
 			}

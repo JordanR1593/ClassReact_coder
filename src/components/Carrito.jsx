@@ -2,11 +2,51 @@ import { useContext } from 'react';
 import { CartContext } from './CartContext';
 import { WrapperCart, TitleCart, ContentCart, Product, ProductDetail, ImageCart, Details, PriceDetail,  ProductPrice, ContainerCar,ContainerSumary } from './styledComponents';
 import { Link } from 'react-router-dom';
+import { increment, serverTimestamp, updateDoc } from "firebase/firestore";
+import { collection, doc, setDoc } from "firebase/firestore";
+import db from "../firebaseConfig";
 
 const Carrito=()=>{
     const test = useContext(CartContext);
+    const createOrder =()=>{
+        let order = {
+            buyer:{
+                email:"Jordan@gmail.com",
+                name:"Jordan",
+                phone:"3121156"
+            },
+            date: serverTimestamp(),
+            items:test.cartList.map((ele)=>{
+                return{
+                    id:ele.id,
+                    price:ele.price,
+                    qty:ele.qty
+                }
+            }),
+            total:test.getTotalPrice()
+        }
+        console.log(order)
+        const createOrderInFirestore = async ()=>{
+            const newOrderRef = doc (collection(db,"orders"))
+            await setDoc(newOrderRef, order);
+            return newOrderRef;
+        }
     
+        createOrderInFirestore()
+            .then(result=>{alert("Your order has been created: "+ result.id);
+            test.cartList.map(async(item)=>{
+                const itemRef=doc(db,"item",item.id);
+                await updateDoc(itemRef,{
+                    stock: increment(-item.qty)
+                })
+            })
+            test.deleteAllProduct()} )
+            .catch(error=>console.log(error))
+        
+            
+    }
     
+  
     return(
         <WrapperCart>
             <TitleCart>YOUR CAR</TitleCart>
@@ -51,6 +91,7 @@ const Carrito=()=>{
             {test.cartList.length>0 && <ContainerSumary><div><strong>ORDER SUMARY</strong>
                 <div>Subtotal:$ {test.getTotalPrice()}</div>
                 <div>Total:$ {test.getTotalPrice()}</div>
+                <button onClick={createOrder}>Comprar</button>
             </div></ContainerSumary>}
             
             </ContainerCar>
