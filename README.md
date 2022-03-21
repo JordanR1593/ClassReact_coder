@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+# Proyecto TiendaMun!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+El proyecto TiendaMun nace como un ecommerce para la implementacion en su gran mayoria de codigo en **React**, con el proposito de familiarzarse con algunos conceptos y formas de implementacion.
+Lo que se busco en este proyecto fue una intefaz de usuario funcional, comoda e intuitiva donde el cliente que quiere comprar en TiendaMun alguno de los productos que esta ofrece lo pudiera hacer sin mayores inconvenientes.
 
-## Available Scripts
 
-In the project directory, you can run:
+# Deployed
 
-### `npm start`
+TiendaMun ha sido deployado a traves del servidor de gitHub.
+Puede acceder a la version deployada a traves del siguiente enlace https://jordanr1593.github.io/ClassReact_coder/
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# Composicion del proyecto
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+El proyecto se creo a traves de **React** utilizando create-react-app junto con **Node.js** y de alli se desprenden una serie de carpetas cuyo contenido de archivos son los que crean la composicion del proyecto.
+Las carpetas principales son:
 
-### `npm test`
+##  1. public
+En esta carpeta se encuentra principalmente el archivo index.html que es el archivo en donde estamos llamando al script que contiene los archivos react
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+##  2. src
+Esta carpeta contiene la siguientes carpetas
 
-### `npm run build`
+### 2.1 componets
+Se alojan todos los componentes react, se busco en su mayoria lograr que cada componente sirviera para una unica funcion de manera que hubiera un mayor orden en el proyecto en desarrollo, y fuera amigable con desarrolladores que leyeran el codigo por primera vez
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 2.2 utils
+El proyecto utiliza como base de datos el servicio  cloud de Firestore, y en esta carpeta se encuentra el archivo de configuracion de firestore.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Tecnologias
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Las principales tecnologias y librerias usadas son:
+- firebase: ^9.6.7
+- gh-pages: ^3.2.3
+- react-router-dom: ^6.2.1
+- react-dom: ^17.0.2
+- react: ^17.0.2
+- Hooks de react (useContext, useState, useEffect, useParams
+- styled-components: ^5.3.3
 
-### `npm run eject`
+# Licencia
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Licencia MIT
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
