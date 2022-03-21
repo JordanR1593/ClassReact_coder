@@ -1,4 +1,3 @@
-import { Description } from "@material-ui/icons";
 import { LoremIpsum } from "react-lorem-ipsum";
 
 

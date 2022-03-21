@@ -6,7 +6,7 @@ const ItemCheck=()=>{
 	return (
         <div className="Cuenta">
             
-            <Link to={"/Carrito"} ><button type="button" className="btn btn-outline-danger" >Check</button></Link>
+            <Link to={"/carShop"} ><button type="button" className="btn btn-outline-danger" >Check</button></Link>
             
         </div>
         );
@@ -16,7 +16,7 @@ const ItemDetail = ({item}) => {
 	const [QtToAdd, setQtToAdd] = useState(0); 
 	const test = useContext(CartContext)
 	
-	const onAdd1=(Propi)=>{
+	const onAddNow=(Propi)=>{
 		alert("Se han agregado al carrito " + Propi+ " unds")
 		setQtToAdd(Propi)
 		test.addToCart(item,Propi)
@@ -43,7 +43,7 @@ const ItemDetail = ({item}) => {
 				
 				QtToAdd ==0? 
 
-				<ItemCount  stock={item.stock}onAdd={onAdd1}/>
+				<ItemCount  stock={item.stock}onAdd={onAddNow}/>
 				:<ItemCheck/>
 				
 			}

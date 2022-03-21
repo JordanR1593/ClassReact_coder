@@ -4,9 +4,9 @@ import { WrapperCart, TitleCart, ContentCart, Product, ProductDetail, ImageCart,
 import { Link } from 'react-router-dom';
 import { increment, serverTimestamp, updateDoc } from "firebase/firestore";
 import { collection, doc, setDoc } from "firebase/firestore";
-import db from "../firebaseConfig";
+import db from "../utils/firebaseConfig";
 
-const Carrito=()=>{
+const CarShop=()=>{
     const test = useContext(CartContext);
     const createOrder =()=>{
         let order = {
@@ -25,7 +25,7 @@ const Carrito=()=>{
             }),
             total:test.getTotalPrice()
         }
-        console.log(order)
+        
         const createOrderInFirestore = async ()=>{
             const newOrderRef = doc (collection(db,"orders"))
             await setDoc(newOrderRef, order);
@@ -49,7 +49,7 @@ const Carrito=()=>{
   
     return(
         <WrapperCart>
-            <TitleCart>YOUR CAR</TitleCart>
+            <TitleCart>Tu Carrito</TitleCart>
             <div className='btn-nav-car'>
 
             {test.cartList.length==0 && <>Tu carrito esta vacio <Link to={"/"} ><button className="btn btn-success" >Comenzar compra</button></Link></>}
@@ -67,13 +67,13 @@ const Carrito=()=>{
                         <ImageCart src={ele.image} />
                         <Details>
                         <span>
-                            <b>Product:</b> {ele.name}
+                            <b>Producto:</b> {ele.name}
                         </span>
                         </Details>
                     </ProductDetail>
                     <PriceDetail>
                         
-                    {ele.qty} item(s) / ${ele.price} each
+                    {ele.qty} item(s) / ${ele.price} cada uno
                         
                         <ProductPrice>${ele.price*ele.qty}</ProductPrice>
                     </PriceDetail></div>
@@ -88,7 +88,7 @@ const Carrito=()=>{
             
             </ContentCart>
             
-            {test.cartList.length>0 && <ContainerSumary><div><strong>ORDER SUMARY</strong>
+            {test.cartList.length>0 && <ContainerSumary><div><strong>Resumen de pedido</strong>
                 <div>Subtotal:$ {test.getTotalPrice()}</div>
                 <div>Total:$ {test.getTotalPrice()}</div>
                 <button onClick={createOrder}>Comprar</button>
@@ -100,4 +100,4 @@ const Carrito=()=>{
     
 }
 
-export default Carrito
+export default CarShop

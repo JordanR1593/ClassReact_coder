@@ -5,10 +5,10 @@ export const CartContext = createContext([]);
 
 const CartContextProvider = ({children}) => {
     const [cartList , setcarList] = useState([]);
-console.log(cartList)
+
     const addToCart=(item, QtToAdd)=>{
         if(cartList.length>=1){
-                ///////////////////////
+                
                 let found=cartList.find(ele=>(ele.id==item.id))
                 if(found){
                     found.qty=QtToAdd+found.qty
@@ -26,7 +26,7 @@ console.log(cartList)
                         }
                 
             } 
-            else{console.log("chao")
+            else{
                 setcarList([
                     {
                     id:item.id,

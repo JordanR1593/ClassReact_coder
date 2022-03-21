@@ -1,11 +1,11 @@
 
 import './App.css';
-import Carrito from './components/Carrito';
+import CarShop from './components/CarShop';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import ItemListContainer from './components/ItemListContainer';
 import Navbar from './components/Navbar';
-import {BrowserRouter,Route,Routes,Link} from "react-router-dom";
-import CartContextProvider, {CartContext} from "./components/CartContext";
+import {BrowserRouter,Route,Routes} from "react-router-dom";
+import CartContextProvider from "./components/CartContext";
 
 function App() {
   return (
@@ -23,7 +23,7 @@ function App() {
 
           <Route path="/item/:idName" element={<ItemDetailContainer/>}/>
 
-          <Route path="/Carrito" element={<Carrito/>}/>
+          <Route path="/CarShop" element={<CarShop/>}/>
 
         </Routes>
         

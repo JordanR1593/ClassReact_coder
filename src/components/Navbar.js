@@ -27,7 +27,7 @@ const Navbar =()=>{
             </ul>
           </div>
         </div>
-        <Link to="./Carrito"><CartWidget /></Link>
+        <Link to="./CarShop"><CartWidget /></Link>
       </nav>
 
     );
