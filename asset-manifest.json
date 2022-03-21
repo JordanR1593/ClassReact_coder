@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/ClassReact_coder/static/css/main.946121b6.css",
+    "main.js": "/ClassReact_coder/static/js/main.abcd8570.js",
+    "index.html": "/ClassReact_coder/index.html",
+    "main.946121b6.css.map": "/ClassReact_coder/static/css/main.946121b6.css.map",
+    "main.abcd8570.js.map": "/ClassReact_coder/static/js/main.abcd8570.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.946121b6.css",
+    "static/js/main.abcd8570.js"
+  ]
+}
