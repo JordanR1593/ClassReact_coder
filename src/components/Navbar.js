@@ -1,6 +1,7 @@
 import CartWidget from './CartWidget';
 import { Link } from 'react-router-dom';
 
+//Componente de la barra de navegacion que en ruta las elecciones de visualizacion del cliente
 const Navbar =()=>{
     return(
         <nav className="navbar navbar-expand-lg navbar-light bg-light">

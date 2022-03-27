@@ -5,9 +5,10 @@ import { Link } from 'react-router-dom';
 import { increment, serverTimestamp, updateDoc } from "firebase/firestore";
 import { collection, doc, setDoc } from "firebase/firestore";
 import db from "../utils/firebaseConfig";
-
+//Componente donde se renderiza los items que el cliente ha seleccionado para compra
 const CarShop=()=>{
     const test = useContext(CartContext);
+    //Creacion de orden de compra udentificando comprador,producto, precio y cantidad comprada
     const createOrder =()=>{
         let order = {
             buyer:{
@@ -25,13 +26,14 @@ const CarShop=()=>{
             }),
             total:test.getTotalPrice()
         }
-        
+        //Creacion de coleccion orders en Cloud de firestore
+        //Promesa
         const createOrderInFirestore = async ()=>{
             const newOrderRef = doc (collection(db,"orders"))
             await setDoc(newOrderRef, order);
             return newOrderRef;
         }
-    
+        //Llamado a promesa
         createOrderInFirestore()
             .then(result=>{alert("Your order has been created: "+ result.id);
             test.cartList.map(async(item)=>{
@@ -53,7 +55,7 @@ const CarShop=()=>{
             <div className='btn-nav-car'>
 
             {test.cartList.length==0 && <>Tu carrito esta vacio <Link to={"/"} ><button className="btn btn-success" >Comenzar compra</button></Link></>}
-            {test.cartList.length!=0 && <><button className="btn btn-danger" onClick={test.deleteAllProduct}>Borrar todo del carrito</button> <>{test.getTotalQuantity()}</><Link to={"/"} ><button className="btn btn-success" >Continuar comprando</button></Link></>}
+            {test.cartList.length!=0 && <><button className="btn btn-danger" onClick={test.deleteAllProduct}>Borrar todo del carrito</button> <Link to={"/"} ><button className="btn btn-success" >Continuar comprando</button></Link></>}
             
             </div>
             <ContainerCar>

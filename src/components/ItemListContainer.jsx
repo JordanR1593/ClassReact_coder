@@ -5,7 +5,7 @@ import { collection, getDocs } from "firebase/firestore";
 import db from "../utils/firebaseConfig";
 
 
-
+//Componente donde se listan los diferentes productos que se estan ofreciendo
 const ItemListContainer = () => {
 	const [Items, setItems] = useState([]);
 	const { idCategory } = useParams();

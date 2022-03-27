@@ -4,7 +4,7 @@ import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { CartContext } from './CartContext';
 import { useContext } from 'react';
 
-
+//Componente que renderiza la imagen del carrito y las notificaciones de cantidad de articulos en carrito
 const  CartWidget= ()=>   {
    
   const test = useContext(CartContext);

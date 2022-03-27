@@ -1,18 +1,18 @@
 import { useState } from "react";
-
+//Componente para aumentar o disminuir cantidad de items inmediatamente seleccionado un producto para compra
 const ItemCount = ({onAdd, stock}) => {
     
-    const [Products, setProducts] = useState(1); 
+    const [Products, setProducts] = useState(0); 
     
     const incrementar = () => {
-        if((Products>=1)&&(Products<=stock-1)){
+        if((stock>=1)&&(Products<=stock-1)){
             setProducts(Products+1);
         }
         
     }
     const disminuir = () => {
         
-        if((Products>=2)&&(Products<=stock)){
+        if((stock>=2)&&(Products>0)){
             setProducts(Products-1);
         }
     }

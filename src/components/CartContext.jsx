@@ -3,9 +3,11 @@ import { useState } from "react";
 
 export const CartContext = createContext([]);
 
+
 const CartContextProvider = ({children}) => {
     const [cartList , setcarList] = useState([]);
 
+    //Funcion global para agregar al carrito un nuevo item
     const addToCart=(item, QtToAdd)=>{
         if(cartList.length>=1){
                 
@@ -39,7 +41,7 @@ const CartContextProvider = ({children}) => {
                 
             }
         }
-
+        //Funcion global para obtener cantidad total de items seleccionados por el comprador
     const getTotalQuantity = () => {
         let qtys = 0
 
@@ -49,7 +51,7 @@ const CartContextProvider = ({children}) => {
 
         return qtys
     }   
-    
+        //Funcion global para obtener el valor total de la posible compra
     const getTotalPrice = () => {
         let price = 0
         if (cartList.length > 0) {
@@ -59,11 +61,12 @@ const CartContextProvider = ({children}) => {
         }
         return price
     }
-
+    //Funcion global para quitar un item del carrito
     const deleteProduct = (id)=>{
         setcarList(cartList.filter((e) => e.id != parseInt(id)))
            
     }
+    //Funcion global para quitar todos lo items del carrito
     const deleteAllProduct = ()=>{
         setcarList([])
     }

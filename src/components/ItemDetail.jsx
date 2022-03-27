@@ -2,6 +2,7 @@ import ItemCount from "./ItemCount";
 import { useContext, useState } from "react";
 import { Link } from 'react-router-dom';
 import { CartContext } from "./CartContext";
+
 const ItemCheck=()=>{
 	return (
         <div className="Cuenta">
@@ -11,7 +12,7 @@ const ItemCheck=()=>{
         </div>
         );
 }
-
+//Componente para definir que se va a mostrar de detalle para cada producto una vez ha sido seleccionado
 const ItemDetail = ({item}) => {
 	const [QtToAdd, setQtToAdd] = useState(0); 
 	const test = useContext(CartContext)

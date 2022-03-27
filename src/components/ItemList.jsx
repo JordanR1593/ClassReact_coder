@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 
+
+//Componente para configurar las tarjetas donde se muestra informacion de los productos que son opciones para el cliente
 const ItemList= (props)=>{
 
      

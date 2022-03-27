@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import db from "../utils/firebaseConfig";
 
 
-
+//Componente que identifica que producto el cliente desea comprar y que detalle especifico debe renderizar
 const ItemDetailContainer = () => {
 	const [Items, setItems] = useState({});
 	const {idName} = useParams();
