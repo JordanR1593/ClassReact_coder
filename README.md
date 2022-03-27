@@ -7,7 +7,7 @@ Lo que se busco en este proyecto fue una intefaz de usuario funcional, comoda e 
 # Deployed
 
 TiendaMun ha sido deployado a traves del servidor de gitHub.
-Puede acceder a la version deployada a traves del siguiente enlace https://jordanr1593.github.io/
+Puede acceder a la version deployada a traves del siguiente enlace https://jordanr1593.github.io/ClassReact_coder/
 
 # Composicion del proyecto
 
